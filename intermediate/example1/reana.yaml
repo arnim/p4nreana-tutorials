@@ -1,0 +1,17 @@
+inputs:
+  files:
+    - updown.py
+    - gaia_table_1.csv
+    - gaia_table_2.csv
+workflow:
+  type: serial
+  specification:
+    steps:
+      - environment: 'jupyter/scipy-notebook'
+        commands:
+        - mkdir -p results
+        - python updown.py
+outputs:
+  files:
+    - results/table_match.png
+    - results/table_match.csv
