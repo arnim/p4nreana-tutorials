@@ -63,18 +63,18 @@ pip install reana-client
 
 ### Final steps
 
-add into your **$HOME/.bashrc_profile** the credentials from the **https://reana-p4n.aip.de/profile**:
+We assume that you have already registered on [https://reana-p4n.aip.de](https://reana-p4n.aip.de).  
+Login and add into your **$HOME/.bashrc_profile** the credentials from **https://reana-p4n.aip.de/profile**:
 
 ```
 nano $HOME/.bashrc_profile
 ```
-We assume that you have already registered on [https://reana-p4n.aip.de](https://reana-p4n.aip.de)
-Login and exprot your access tocken in your shel (the tocken is avalable in your profile: )
+
 ```
 export REANA_SERVER_URL=https://reana-p4n.aip.de
 export REANA_ACCESS_TOKEN=XXXXX
 ```
-logout and login again into the terminal.
+save, logout and login again into the terminal.
 
 ### Testing Setup
 
