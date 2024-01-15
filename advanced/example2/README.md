@@ -76,7 +76,7 @@ Wait until the pipeline finishes running, and if successful your image is create
 ### 4. Use your new image
 
 Go to `Deploy > Container registry` and you should see a new tag with the name you defined and a version number.  
-Copy the image path and you can now use it, e.g. as a reana environment.
+Copy the image path and you can now use it as, e.g., a reana environment.
 
 N.B.: it might be necessary to make it public if it's not.
 
