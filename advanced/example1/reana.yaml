@@ -3,14 +3,15 @@ inputs:
     - remote_data.ipynb
   parameters:
     notebook: remote_data.ipynb
-    output_file: results/galactic_plot.png
+    output_plot: results/galactic_plot.png
 workflow:
   type: serial
   specification:
     steps:
       - environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.9845'
         commands:
-          - mkdir -p results && papermill ${notebook} /dev/null -p output_file ${output_file}
+          - mkdir -p results
+          - papermill ${notebook} results/output_notebook.ipynb -p output_file ${output_plot}
 outputs:
   files:
     - results/galactic_plot.png
