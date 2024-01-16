@@ -1,0 +1,13 @@
+version: 0.9.0
+inputs:
+  parameters:
+    srcrepo: https://github.com/reanahub/reana-demo-root6-roofit
+workflow:
+  type: serial
+  specification:
+    steps:
+      - environment: rootproject/root:latest
+        commands:
+          - git clone "${srcrepo}"
+          - echo "Hello!"
+ 
