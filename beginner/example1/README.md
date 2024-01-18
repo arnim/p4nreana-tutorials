@@ -1,4 +1,7 @@
 # "Hello World!"
+
+[![Launch on REANA badge](https://www.reana.io/static/img/badges/launch-on-reana.svg)](https://reana-p4n.aip.de/launch?url=https%3A%2F%2Fgitlab-p4n.aip.de%2Fp4nreana%2Ftutorials%2Fbeginner%2Fexample1)
+
 ## About
 This example prints a simple "hello world" message through REANA.
 
