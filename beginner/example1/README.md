@@ -1,7 +1,5 @@
 # "Hello World!"
 
-[![Launch on REANA](https://www.reana.io/static/img/badges/launch-on-reana.svg)](https://reana-p4n.aip.de/launch?name=helloworld&url=https%3A%2F%2Fgitlab-p4n.aip.de%2Fp4nreana%2Ftutorials%2F-%2Ftree%2Fmain%2Fbeginner%2Fexample1)
-
 ## About
 This example prints a simple "hello world" message through REANA.
 
@@ -63,3 +61,7 @@ $ reana-client logs
 
 Please see the [REANA-Client](https://reana-client.readthedocs.io/) documentation for more detailed explanation of typical `reana-client` usage scenarios.  
 Also useful is the [reana.yaml](https://docs.reana.io/reference/reana-yaml/) documentation.
+
+## Adding badges
+
+It it possible to generate a "Launch-on-REANA" badge to add to your git repository, but you will need to have the whole example as a single repository, not inside a sub-folded like in this case. You can have a look at the branch [hello-world](https://gitlab-p4n.aip.de/p4nreana/tutorials/-/tree/hello-world) where this is implemented.
