@@ -1,0 +1,11 @@
+inputs:
+  files:
+    - helloworld.py
+workflow:
+  type: serial
+  specification:
+    steps:
+      - environment: 'docker.io/library/python:3.10-bookworm'
+        commands:
+        - python helloworld.py
+
