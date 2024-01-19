@@ -46,4 +46,13 @@ The output file is the plot.
 
 After running the analysis through REANA with the usual commands, we can start a Jupyter Notebook by clicking on the 3 dots and selecting `Open Jupyter Notebook`. After waiting a few seconds, we can click on the new notebook image that should have appearead next to the workflow name.
 
-Notice that this notebook runs in a different environment compared to the one specified in the yaml file, so we might need to reinstall some libraries.
+Notice that this notebook runs in a different environment compared to the one specified in the yaml file, so we might need to reinstall some libraries (see the first commented cell in the notebook).
+
+Alternatively, you can open the notebook from command line and specify a custom image, in this case:
+
+`reana-client open -w adv-example1.1 -i gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.9845 jupyter`
+
+Notice you need to use the workflow name you chose when running the analysis (here "adv-example1") with the correct tag (the progressive number automatically added by REANA that you can see in the platform next to the name).
+
+You can open notebooks in this way for all your workflows.
+
