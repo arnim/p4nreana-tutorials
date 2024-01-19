@@ -7,7 +7,7 @@ workflow:
   type: serial
   specification:
     steps:
-      - environment: 'gitlab-p4n.aip.de:5005/arm2arm/reanatest:main'
+      - environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro-ml.10043'
         commands:
           - sleep ${sleeptime}
           - env >> ${outputfile}
@@ -16,3 +16,4 @@ workflow:
 outputs:
   files:
    - greetings.txt
+   - projections_comparison.png
