@@ -12,6 +12,7 @@ workflow:
           - sleep ${sleeptime}
           - env >> ${outputfile}
           - echo "Hello from reana">>${outputfile}
+          - python reduce.py 
 outputs:
   files:
    - greetings.txt
