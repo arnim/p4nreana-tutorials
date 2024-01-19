@@ -1,13 +1,17 @@
 version: 0.9.0
 inputs:
   parameters:
-    srcrepo: https://github.com/reanahub/reana-demo-root6-roofit
+    outputfile: greetings.txt
+    sleeptime: 2
 workflow:
   type: serial
   specification:
     steps:
-      - environment: rootproject/root:latest
+      - environment: 'gitlab-p4n.aip.de:5005/arm2arm/reanatest:main'
         commands:
-          - git clone "${srcrepo}"
-          - echo "Hello!"
- 
+          - sleep ${sleeptime}
+          - env >> ${outputfile}
+          - echo "Hello from reana">>${outputfile}
+outputs:
+  files:
+   - greetings.txt

@@ -1,4 +1,4 @@
-# Theory of dimentionality reduction
+# Theory of Dimensionality  reduction
  
 ### UMAP (Uniform Manifold Approximation and Projection):
 
