@@ -2,7 +2,8 @@ version: 0.9.0
 inputs:
   parameters:
     outputfile: greetings.txt
-    sleeptime: 2
+  files:
+    - reduce.py
 workflow:
   type: serial
   specification:
