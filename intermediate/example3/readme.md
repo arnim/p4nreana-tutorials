@@ -2,7 +2,7 @@
 
 ## About
 
-This example shows how access the data via TAP/VO from external database and to use REANA to plot this astronomical data using a Python script.
+This example shows how access the data via [TAP/VO](https://ned.ipac.caltech.edu/Documents/Guides/Interface/TAP) from external database and to use REANA to plot this astronomical data using a Python script.
 ## Structure
 
 ### 1.Input Data
