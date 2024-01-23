@@ -41,7 +41,7 @@ for index, row in dfa.iterrows():
 ```
 By changing the **`archive_id`** you will be able to create different [Mollweide Diagrams](http://master.grad.hr/hdgg/kog_stranica/kog15/2Lapaine-KoG15.pdf) plotting the size of the observed area (FoV) of each single plate from each archive.
 ### 3.Environment
-For this analysis to run we need many libraries included at the beginning of the source file, so we can use an environment based on `jupyter/scipy-notebook` with some additional libraries useful for astronomical data handling.
+We have created a custom Docker image for our REANA workflow environment. It is hosted at `gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.10125`. The environment section in our REANA workflow YAML file indicates the Docker image to be used for running your Python script.
 ### 4.Running the example on REANA
 ```
 version: 0.9.0
