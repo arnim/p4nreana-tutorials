@@ -4,7 +4,7 @@
 
  ### About
  ----
- This repository provides a simple "sine function" application example for [REANA](https://www.reanahub.io/) reusable research data analysis plaftorm.
+ This repository provides a simple "sine function" application example for [REANA](https://www.reanahub.io/) reusable research data analysis platform.
  
  ### Structure
  ---
