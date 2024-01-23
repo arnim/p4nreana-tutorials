@@ -67,6 +67,7 @@ outputs:
 The output should produce `dr4_archive_401.png` in the folder `imgdr4`.
 It should look like this:
 ![](imgdr4/dr4_archive_401.png){width=50%}
+<img src="dr4_archive_401.png" width="200" height="100">
 
 
 
