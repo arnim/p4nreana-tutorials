@@ -1,24 +1,18 @@
- ## REANA example - "sinefunction
- -----
- 
-
- ### About
- ----
- This repository provides a simple `sine function` application example for [REANA](https://www.reanahub.io/) reusable research data analysis platform.
- 
- ### Structure
- ---
- 
+#  "Sine-function"
+## About
+ This repository provides a simple `sine function` plotting example for [REANA](https://www.reanahub.io/) reusable research data analysis plaftorm.
+## Structure
 To run a REANA workflow, you typically need the following files:
-#### 1. **Source code**
+### 1.**Source code**
 
-To create a simple "sine function" application example for a REANA reusable research data analysis platform, you can use this Python script saved as ```sine_plot.py ```
+To create a simple `sine function` plotting example for a REANA reusable research data analysis platform, you can use this Python script saved as `sine_plot.py`.
 
-#### 2. **Environment Requirements**
+### 2.**Environment Requirements**
 It's important to choose an environment that includes all the necessary dependencies for the specific task at hand. If custom environments are needed, you can create your own Docker images and use them in the environment specification.  
 
-We have created a custom Docker image for our REANA workflow environment. It is hosted at `gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.10125`. The environment section in our REANA workflow YAML file indicates the Docker image to be used for running your Python script.  
-#### 3. **Workflow Specification (YAML)**:
+We have created a custom Docker image for our REANA workflow environment. It is hosted at `gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.10125`. The environment section in our REANA workflow YAML file indicates the Docker image to be used for running your Python script.
+
+### 3.**Workflow Specification (YAML)**:
 This file describes the structure and steps of your workflow. It includes information about input data, steps to be executed, and any necessary parameters. The default name is often **reana.yaml**.
 
 ``` 
@@ -30,7 +24,7 @@ workflow:
   type: serial
   specification:
     steps:
-      - environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.9845'
+      - environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.10125'
         commands:
           - mkdir -p output
           - python sine_plot.py
@@ -39,6 +33,7 @@ outputs:
     - output/sine_plot.png
 
 ```
+
 ## Running the Example  
 Since you have all the file to run your work in REANA,follow these steps to run your workflow:
 
@@ -89,4 +84,3 @@ Running this workflow should give you a sin function plot:
 
 
 
-```
