@@ -7,7 +7,7 @@ This example shows how access the data via [TAP/VO](https://ned.ipac.caltech.edu
 
 ### 1.Input Data
 [APPLAUSE](https://www.plate-archive.org/cms/home/) (Archives of Photographic PLates for Astronomical USE) is a collection of photographic plate data which can be accessed by  SQL queries.
-The data is accesses is via TAP/VO to a website (www.plate-archive.org).
+The data is accessed via TAP/VO to a website (www.plate-archive.org).
 ### 2.Source code
 Python script `plotplates.py` queries this archive table and creates plots based on retrieved data.
 This code will perform following steps:
