@@ -66,7 +66,7 @@ outputs:
 ### 5.Output 
 The output should produce `dr4_archive_401.png` in the folder `imgdr4`.
 It should look like this:
-<center> ![](imgdr4/dr4_archive_401.png){width=50%} </center>
+![](imgdr4/dr4_archive_401.png){width=50%}
 
 
 
