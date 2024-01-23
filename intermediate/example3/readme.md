@@ -42,7 +42,7 @@ for index, row in dfa.iterrows():
 ```
 By changing the **`archive_id`** you will be able to create different [Mollweide Diagrams](http://master.grad.hr/hdgg/kog_stranica/kog15/2Lapaine-KoG15.pdf) plotting the size of the observed area (FoV) of each single plate from each archive.
 ### 3.Environment
-We have created a custom Docker image for our REANA workflow environment. It is hosted at `gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.10125`. The environment section in our REANA workflow YAML file indicates the Docker image to be used for running your Python script.
+We have created a custom Docker image for our REANA workflow environment. It is hosted at `gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.10125`. The environment section in our REANA workflow YAML file indicates the Docker image to be used for running our Python script.
 ### 4.Running the example on REANA
 ```
 version: 0.9.0
