@@ -15,8 +15,8 @@ To run a REANA workflow, you typically need the following files:
 To create a simple "sine function" application example for a REANA reusable research data analysis platform, you can use this Python script saved as ```sine_plot.py ```
 
 #### 2. **Environment Requirements**
-It's important to choose an environment that includes all the necessary dependencies for the specific task at hand. The If custom environments are needed, you can create your own Docker images and use them in the environment specification. It is given in requirements.txt file.
-
+It's important to choose an environment that includes all the necessary dependencies for the specific task at hand. The custom environments are needed, you can create your own Docker images and use them in the environment specification. Here we have used our own dokcer images from gitlab 
+`gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.10125`.
 
 #### 3. **Workflow Specification (YAML)**:
 This file describes the structure and steps of your workflow. It includes information about input data, steps to be executed, and any necessary parameters. The default name is often **workflow.yaml**.
@@ -34,7 +34,7 @@ workflow:
   specification:
     steps:
       - name: run-sine_plot
-        environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py310astro.9788'
+        environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.10125'
         commands:
           - python sine_plot.py
 ```
