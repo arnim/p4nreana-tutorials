@@ -1,6 +1,6 @@
 #  "Sine-function"
 ## About
- This repository provides a simple `sine function` plotting example for [REANA](https://www.reanahub.io/) reusable research data analysis plaftorm.
+ This repository provides a simple `sine function` plotting example for [REANA](https://www.reanahub.io/) reusable research data analysis platform.
 ## Structure
 To run a REANA workflow, you typically need the following files:
 ### 1.**Source code**
