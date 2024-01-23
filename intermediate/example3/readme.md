@@ -31,8 +31,9 @@ dfa = tap_result.to_table().to_pandas()
 ##### 4. Load the DataFrame by:
 ```
 dfa
+dfa.to_csv('archive_id.csv', index=False)
 ```
-This should give you all the Query archive table for all available archives according to the archive id.
+This should give you all the Query archive table for all available archives according to the archive id and save in a `archive_id.csv`.
 ##### 5. Loop through the archives
 ```
 for index, row in dfa.iterrows():
@@ -47,6 +48,7 @@ We have created a custom Docker image for our REANA workflow environment. It is 
 version: 0.9.0
 inputs:
   files:
+  - archive_id.csv
   - plotplates.py
 workflow:
   type: serial
@@ -58,6 +60,7 @@ workflow:
           - python plotplates.py
 outputs:
   files:
+    - archive_id.csv
     - imgdr4/dr4_archive_401.png
 
 
