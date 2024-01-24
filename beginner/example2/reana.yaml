@@ -11,6 +11,6 @@ workflow:
   specification:
     steps:
       - name: setup_environment
-        environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py310astro.9788'
+        environment: 'jupyter/scipy-notebook'
         commands:
           - python sine_plot.py
