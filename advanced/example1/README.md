@@ -44,7 +44,7 @@ The output file is the plot.
 
 ## Running a Jupyter Notebook on REANA
 
-After running the analysis through REANA with the usual commands, we can start a Jupyter Notebook by clicking on the 3 dots and selecting `Open Jupyter Notebook`. After waiting a few seconds, we can click on the new notebook image that should have appearead next to the workflow name.
+After running the analysis through REANA with the usual commands, we can start a Jupyter Notebook by clicking on the 3 dots and selecting `Open Jupyter Notebook`. After waiting a few seconds, we can click on the new notebook image that should have appeared next to the workflow name.
 
 Notice that this notebook runs in a different environment compared to the one specified in the yaml file, so we might need to reinstall some libraries (see the first commented cell in the notebook).
 
