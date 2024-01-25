@@ -1,4 +1,4 @@
-# **Plotting astronomical data**
+# Retrieving astronomical data via TAP queries
 
 ## About
 
