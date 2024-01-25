@@ -102,17 +102,13 @@ Status: Connected
 ### Intermediate
 
 1. [Up/Download](https://gitlab-p4n.aip.de/p4nreana/tutorials/-/tree/main/intermediate/example1) -- This example shows how to upload files to analyze (e.g. a catalog) and download useful outputs (e.g. a plot or a table).
-
 2. [Remote data](https://gitlab-p4n.aip.de/p4nreana/tutorials/-/tree/main/intermediate/example2) -- This example shows how to get data from a remote database, such as S3.
-
 3. [TAP queries](https://gitlab-p4n.aip.de/p4nreana/tutorials/-/tree/main/intermediate/example3) -- This example shows how to access data via TAP/VO from an external database and use it in REANA.
 
 ### Advanced
 
 1. [Using Notebooks](https://gitlab-p4n.aip.de/p4nreana/tutorials/-/tree/main/advanced/example1) -- This eaxmple shows how to use a Jupyter Notebook insted of a python script for the analysis.
-
 2. [Create custom images](https://gitlab-p4n.aip.de/p4nreana/tutorials/-/tree/main/advanced/example2) -- This example shows how to build a custom imgage on gitlab, so that you can choose all the packages and libraries needed for the analsis to run.
-
 3. [Dimensionality reduction](https://gitlab-p4n.aip.de/p4nreana/tutorials/-/tree/main/advanced/example3) -- This example shows three different projections for dimensionality reduction (UMAP, PCA, and t-SNE) and describes how to manage data flow between different pipelines using S3 private storage.
 
 ## Other Examples
