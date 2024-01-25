@@ -118,10 +118,11 @@ Status: Connected
 ## Other Examples
 
 There are many other examples on [REANA Hub](https://github.com/reanahub), e.g.:
-- TBD (buttons)
+- [Evolution of World Population](https://github.com/reanahub/reana-demo-worldpopulation) -- [![Launch on REANA](https://www.reana.io/static/img/badges/launch-on-reana.svg)](https://reana-p4n.aip.de/launch?name=worldpopulation&url=https%3A%2F%2Fgithub.com%2Freanahub%2Freana-demo-worldpopulation)
+- [ROOT Fit](https://github.com/reanahub/reana-demo-root6-roofit) -- [![Launch on REANA](https://www.reana.io/static/img/badges/launch-on-reana.svg)](https://reana-p4n.aip.de/launch?name=rootfit&url=https%3A%2F%2Fgithub.com%2Freanahub%2Freana-demo-root6-roofit)
 
-More useful examples:
-- TBD
+More interesting examples:
+- [LHC Collision Analysis](https://gitlab-p4n.aip.de/compute4punch/tutorials/reana-cern-open-data-tutorial) -- [![Launch on REANA](https://www.reana.io/static/img/badges/launch-on-reana.svg)](https://reana-p4n.aip.de/launch?name=cern-opendata&url=https%3A%2F%2Fgitlab-p4n.aip.de%2Fcompute4punch%2Ftutorials%2Freana-cern-open-data-tutorial)
 
 ## Useful links
 
