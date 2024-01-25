@@ -16,11 +16,11 @@ Create a file named **.gitlab-ci.yml** that will contain the image configuration
 - `$CI_COMMIT_REF_SLUG`: the branch or tag name where the project is built (e.g., py311-astro)
 - `$CI_JOB_ID`: a serial number with the image version (e.g., 9845)
 
-Then we need to actually build the image, by specifying the following steps in the command `:
+Then we need to actually build the image, by specifying the following steps in the section `build-push-docker-image-job`:
 - `image`: a Docker image to run the job in
-- `services`: a Docker-in-Docker
-- `before_script`:
-- `script`: run all the commands to create the image.
+- `services`: additional services needed to run the job
+- `before_script`: commands that should run before each job’s script commands
+- `script`: run all the commands to create the image
 
 This is an example of this file, that you can use as it is:
 
@@ -47,7 +47,9 @@ build-push-docker-image-job:
 
 ### 2. Create a Dockerfile
 
-Create a file named **Dockerfile** that will contain the base image and the additional packages you want to install, e.g.:
+Create a new file and name it **Dockerfile**; it will contain the base image and the additional packages you want to install. First you need to specify a base image, with the command `FROM`, e.g. from a public repository. Then you can upload the needed files with `COPY`, like a requirements file containg all the packages and libraries you need to install. Finally, with `RUN` you specify the commands to install everything on top of the base image.
+
+This is a very simple example of a Dockerfile, where we install the libraries specified inside **requirements.txt** on top of a base image available [here](https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html):
 
 ```
 FROM jupyter/scipy-notebook
