@@ -47,9 +47,9 @@ build-push-docker-image-job:
 
 ### 2. Create a Dockerfile
 
-Create a new file and name it **Dockerfile**; it will contain the base image and the additional packages you want to install. First you need to specify a base image, with the command `FROM`, e.g. from a public repository. Then you can upload the needed files with `COPY`, like a requirements file containg all the packages and libraries you need to install. Finally, with `RUN` you specify the commands to install everything on top of the base image.
+Create a new file and name it **Dockerfile**; it will contain the base image and the additional packages you want to install. First, you need to specify a base image, with the command `FROM`, e.g. from a public repository. Then you can upload the needed files with `COPY`, like a requirements file containing all the packages and libraries you need to install. Finally, with `RUN` you specify the commands to install everything on top of the base image (e.g. `pip`).
 
-This is a very simple example of a Dockerfile, where we install the libraries specified inside **requirements.txt** on top of a base image available [here](https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html):
+This is a very simple example of a Dockerfile, where we install the python libraries specified inside **requirements.txt** on top of a base image available [here](https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html):
 
 ```
 FROM jupyter/scipy-notebook
@@ -58,7 +58,7 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 ```
 
-In this case, all additional libraries are contained in the file **requirements.txt** that is run by `pip`.  
+In this case, all additional libraries are contained in the file **requirements.txt** that is run by `pip`. If you need specific versions of these libraries, you can add the version number, e.g. `numpy>=1.23.1`.  
 This file need to be created and it will be something like:
 
 ```
