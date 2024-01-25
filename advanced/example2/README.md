@@ -1,15 +1,28 @@
 # Create your custom image!
 
+[Docker](https://docs.docker.com/get-started/overview/) is an open platform for developing, shipping, and running applications. A Docker image is a read-only template with instructions for creating a Docker container, where the application will run. Often, an image is based on another image, with some additional customization.
+
 ## About
 
-As we saw in the previous examples, depending on what we need for our analysis we can use different [Docker](https://docs.docker.com/get-started/overview/) images in the `workflow/steps/environment` section of the yaml file; indeed, we used public images from [Docker Hub](https://hub.docker.com/) like `python:3.10-bookworm`, from [Jupyter Stacks](https://jupyter-docker-stacks.readthedocs.io/en/latest/) `jupyter/scipy-notebook`, and custom images we prepared with our preferred libraries `reana-env:py311-astro`.
+As we saw in the previous examples, depending on what we need for our analysis we can use different Docker images in the `workflow/steps/environment` section of the yaml file; indeed, we used public images from [Docker Hub](https://hub.docker.com/) like `python:3.10-bookworm`, from [Jupyter Stacks](https://jupyter-docker-stacks.readthedocs.io/en/latest/) `jupyter/scipy-notebook`, and custom images we prepared with our preferred libraries `reana-env:py311-astro` (see [this example](https://gitlab-p4n.aip.de/p4nreana/tutorials/-/tree/main/intermediate/example2)).
 
 Now we want to show how to build your own imgage on gitlab, so that you can create the perfect environment for your code to run, as the available ones might not always have all the packages and libraries you need.
 
 ## Steps to create a Docker Image on gitlab
 ### 1. Define the `image` in the .gitlab-ci.yml file
 
-Create a file named **.gitlab-ci.yml** that will contain the image configuration, e.g.:
+Create a file named **.gitlab-ci.yml** that will contain the image configuration. Specifically, we need some GitLab [variables](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html) decribing, e.g., the image name and tag, that will be composed by:
+- `$CI_REGISTRY_IMAGE`: the address of the project’s Container Registry (in this case the gitlab repository where we are building the image, e.g., gitlab-p4n.aip.de:5005/p4nreana/reana-env)
+- `$CI_COMMIT_REF_SLUG`: the branch or tag name where the project is built (e.g., py311-astro)
+- `$CI_JOB_ID`: a serial number with the image version (e.g., 9845)
+
+Then we need to actually build the image, by specifying the following steps in the command `:
+- `image`: a Docker image to run the job in
+- `services`: a Docker-in-Docker
+- `before_script`:
+- `script`: run all the commands to create the image.
+
+This is an example of this file, that you can use as it is:
 
 ```
 variables:
