@@ -9,7 +9,7 @@ client = Minio(endpoint = 's3.data.aip.de:9000',
 
 # Get the images from S3
 n_test = 10
-bucket = 'elena-test'
+bucket = 'scratch'
 for i in range(n_test):
     file_remote = f'projections_comparison_{str(i+1)}.png'
     file_local = f'./results/projections_comparison_{str(i+1)}.png'
