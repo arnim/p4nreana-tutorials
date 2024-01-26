@@ -4,8 +4,8 @@ from PIL import Image
 
 # S3 configuration
 client = Minio(endpoint = 's3.data.aip.de:9000',
-               access_key = os.environ['aws_access_key_id'],
-               secret_key = os.environ['aws_secret_access_key'])
+               access_key = os.environ['access_key'],
+               secret_key = os.environ['secret_key'])
 
 # Get the images from S3
 n_test = 10
