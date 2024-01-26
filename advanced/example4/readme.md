@@ -34,7 +34,9 @@ outputs:
   files:
     - results/ProbaDensity_MinimumCoreMass.png
 ```
-- The input file is the jupyter notebook.For the iteration here, we are only using 100 times, because it is for the demonstration. You can change according to your requirement for more accuracy.
+- The input file is the jupyter notebook. we are only iterating it for 100 times to make the execution faster and demonstrate the functionality. You can vary it accordingly as per your accuracy  requirement.
+
+
 - By defining the three parameters which is used by papermill,ie.the input and output notebooks and the path of the output plot.
 - The environment includes papermill and other astronomy libraries, and the commands make the results directory and call papermill. In this call, the `-p` flag is used to pass parameters to the notebook (check the differences between the input and output).
 - `-k python3` argument is to explicitly set the kernel to Python 3 when running the Jupyter Notebook using the papermill tool. This ensures that the notebook code is executed in a Python 3 environment, and any dependencies or libraries specified for Python 3 are used during the execution.
