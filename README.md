@@ -128,4 +128,5 @@ More interesting examples:
 - [REANA home page](http://www.reana.io/)
 - [REANA documentation](http://docs.reana.io/)
 - [REANA on DockerHub](https://hub.docker.com/u/reanahub/)
+- [HSF Training](https://hsf-training.github.io/hsf-training-reana-webpage/)
 - [Git Basics](https://gitlab-p4n.aip.de/p4nreana/tutorial2023/-/tree/main/useful_docs/git?ref_type=heads)
