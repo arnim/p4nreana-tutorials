@@ -13,7 +13,8 @@ original publication.
 
 ## Getting started
 ### Install Miniconda
-You can skip this if you have already one.
+You can skip this if you have it already.  
+
 Install conda first:
 * Linux:
 ```
