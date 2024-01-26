@@ -61,14 +61,14 @@ The data round trip is following:
   * we use public datasets from **gaia.aip.de** 
 
 # Keys and secrets management
-We use **reana-client secrets** management (see also [here](https://docs.reana.io/reference/reana-client-cli-api/#secret-management-commands)):
+First of all, we need to use [**reana-client secrets**](https://docs.reana.io/reference/reana-client-cli-api/#secret-management-commands) management to store the keys to access the private folder we want to put our results in:
 
 `reana-client secrets-add --env access_key=XXX`  
 `reana-client secrets-add --env secret_key=XXX`
 
-(The keys will be shared during the Tutorial)
+(The keys will be shared during the Tutorial.)
 
-In this way we can use the added key as environment variables in our code, by simply calling, e.g., `os.environ['access_key']`. These will be used to access a private folder on S3 storage.
+In this way, we can use the added keys as environment variables in our code, by simply calling, e.g., `os.environ['access_key']`. These will be used to access a private folder on S3 storage.
 
 # Running the example on REANA
 
