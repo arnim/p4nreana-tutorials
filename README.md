@@ -111,6 +111,8 @@ Status: Connected
 2. [Create custom Images](https://gitlab-p4n.aip.de/p4nreana/tutorials/-/tree/main/advanced/example2) -- This example shows how to build a custom imgage on gitlab, so that you can choose all the packages and libraries needed for the analsis to run.
 3. [Dimensionality Reduction](https://gitlab-p4n.aip.de/p4nreana/tutorials/-/tree/main/advanced/example3) -- This example shows three different projections for dimensionality reduction (UMAP, PCA, and t-SNE) and describes how to manage data flow between different pipelines using S3 private storage.
 
+Custom environments created for these exarcises here: [reana-env](https://gitlab-p4n.aip.de/p4nreana/reana-env/)
+
 ## Other Examples
 
 There are many other examples on [REANA Hub](https://github.com/reanahub), e.g.:
