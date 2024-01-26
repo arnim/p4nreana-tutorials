@@ -1,4 +1,6 @@
-# Theory of Dimensionality  reduction
+# Theory of Dimensionality reduction
+
+We show here 3 different alogithms to perform dimensionality reduction and describe how to manage data flow between different pipelines using S3 private storage, all through REANA.
  
 ### UMAP (Uniform Manifold Approximation and Projection):
 
@@ -43,7 +45,6 @@
 * download from S3 previous plots if exists
 * combine into one grid plot to pdf 
 
-
 # Data management 
 This example is describing how to manage the data between different pipelines using S3 private storage.
 The data round trip is following:
@@ -60,4 +61,42 @@ The data round trip is following:
   * we use public datasets from **gaia.aip.de** 
 
 # Keys and secrets management
-* we use **reana-client secrets** management
+We use **reana-client secrets** management (see also [here](https://docs.reana.io/reference/reana-client-cli-api/#secret-management-commands)):
+
+`reana-client secrets-add --env access_key=XXX`  
+`reana-client secrets-add --env secret_key=XXX`
+
+(The keys will be shared during the Tutorial)
+
+In this way we can use the added key as environment variables in our code, by simply calling, e.g., `os.environ['access_key']`. These will be used to access a private folder on S3 storage.
+
+# Running the example on REANA
+
+The **reana.yaml** file for this example is quite simple and made of 2 steps:
+- `make-projections` runs the 3 projections for a number of times specified by the `n_test` parameter and uploads the results to S3;
+- `combine-plots` retrieves all the plots and combines them in a single pdf file.
+
+```
+inputs:
+  files:
+    - reduce.py
+    - combine_plots.py
+  parameters:
+    n_test: 5
+workflow:
+  type: serial
+  specification:
+    steps:
+      - name: make-projections
+        environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro-ml.10134'
+        commands:
+          - mkdir -p results
+          - python reduce.py -n ${n_test}
+      - name: combine-plots
+        environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro-ml.10134'
+        commands:
+          - python combine_plots.py -n ${n_test}
+outputs:
+  files:
+    - results/merged_plots.pdf
+```
