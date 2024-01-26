@@ -1,19 +1,21 @@
 version: 0.9.0
 inputs:
-  parameters:
-    outputfile: greetings.txt
   files:
     - reduce.py
+    - combine_plots.py
 workflow:
   type: serial
   specification:
     steps:
-      - environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro-ml.10043'
+      - name: make-projections
+        environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro-ml.10134'
         commands:
-          - env >> ${outputfile}
-          - echo "Hello from reana">>${outputfile}
-          - python reduce.py 
+          - mkdir -p results
+          - python reduce.py
+      - name: combine-plots
+        environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro-ml.10134'
+        commands:
+          - python combine_plots.py
 outputs:
   files:
-   - greetings.txt
-   - projections_comparison.png
+    - results/merged_plots.pdf
