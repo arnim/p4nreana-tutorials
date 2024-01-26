@@ -29,7 +29,7 @@ workflow:
       - environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.9845'
         commands:
           - mkdir -p results
-          - papermill ${notebook_in} ${notebook_out} -p output_file ${output_plot}
+          - papermill ${notebook_in} ${notebook_out} -p output_file ${output_plot} -k python3
 outputs:
   files:
     - results/galactic_plot.png
@@ -38,7 +38,7 @@ outputs:
 As usual, we upload the notebook itself as an input file.  
 Then we define three parameters that will be used by papermill, i.e. the input and output notebooks and the path of the output plot.
 
-The environment includes papermill and other astronomy libraries, and the commands make the results directory and call papermill. In this call, the `-p` flag is used to pass parameters to the notebook (check the differences between the input and output).
+The environment includes papermill and other astronomy libraries, and the commands make the results directory and call papermill. In this call, the `-p` flag is used to pass parameters to the notebook (check the differences between the input and output), while the `-k` flag avoids confilct between the notebook and reana kernels.
 
 The output file is the plot.
 
