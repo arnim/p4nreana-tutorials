@@ -37,8 +37,8 @@ def make_projections(df, n_components, n_random):
 
 # S3 configuration
 client = Minio(endpoint = 's3.data.aip.de:9000',
-               access_key = os.environ['aws_access_key_id'],
-               secret_key = os.environ['aws_secret_access_key'])
+               access_key = os.environ['access_key'],
+               secret_key = os.environ['secret_key'])
 
 # Query Gaia archive
 service = vo.dal.TAPService("https://gaia.aip.de/tap")
