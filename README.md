@@ -95,6 +95,9 @@ Status: Connected
 
 ## Examples in the Tutorial
 
+Get all the examples in this GitLab repository:  
+`git clone --depth 1 git@gitlab-p4n.aip.de:p4nreana/tutorials.git`
+
 ### Beginner
 
 1. [Hello World!](https://gitlab-p4n.aip.de/p4nreana/tutorials/-/tree/main/beginner/example1) -- This example prints a simple "hello world" message through REANA.
