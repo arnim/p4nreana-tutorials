@@ -1,80 +1,98 @@
+import os
+import pyvo as vo
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+
 import umap
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 from sklearn.preprocessing import MinMaxScaler
-import matplotlib.pyplot as plt
 
-# Set the seed for reproducibility
-np.random.seed(42)
+from minio import Minio
 
-# Create a DataFrame with random numbers
-num_rows = 100
-num_columns = 10
-data = np.random.rand(num_rows, num_columns)
-column_names = [f"Column_{i+1}" for i in range(num_columns)]
-df = pd.DataFrame(data, columns=column_names)
+def make_projections(df, n_components, n_random):
+    
+    proj = {}
+    
+    # UMAP projection
+    umap_model = umap.UMAP(n_components=n_components, random_state=n_random)
+    umap_projection = umap_model.fit_transform(df)
+    proj['UMAP'] = umap_projection
+    print('UMAP done')
 
-# UMAP projection
-umap_model = umap.UMAP(n_components=2, random_state=42)
-umap_projection = umap_model.fit_transform(df)
+    # PCA projection
+    pca_model = PCA(n_components=n_components, random_state=n_random)
+    pca_projection = pca_model.fit_transform(df)
+    proj['PCA'] = pca_projection
+    print('PCA done')
 
-# PCA projection
-pca_model = PCA(n_components=2, random_state=42)
-pca_projection = pca_model.fit_transform(df)
+    # t-SNE projection
+    tsne_model = TSNE(n_components=n_components, random_state=n_random)
+    tsne_projection = tsne_model.fit_transform(df)
+    proj['t-SNE'] = tsne_projection
+    print('t-SNE done')
+    
+    return(proj)
 
-# t-SNE projection
-tsne_model = TSNE(n_components=2, random_state=42)
-tsne_projection = tsne_model.fit_transform(df)
+# S3 configuration
+client = Minio(endpoint = 's3.data.aip.de:9000',
+               access_key = os.environ['aws_access_key_id'],
+               secret_key = os.environ['aws_secret_access_key'])
 
-# Add UMAP, t-SNE, and PCA coordinates as columns in the DataFrame
-df['x_umap'] = umap_projection[:, 0]
-df['y_umap'] = umap_projection[:, 1]
-df['x_pca'] = pca_projection[:, 0]
-df['y_pca'] = pca_projection[:, 1]
-df['x_tsne'] = tsne_projection[:, 0]
-df['y_tsne'] = tsne_projection[:, 1]
+# Query Gaia archive
+service = vo.dal.TAPService("https://gaia.aip.de/tap")
 
-# Scale the values for better colors
-scaler = MinMaxScaler()
-umap_scaled = scaler.fit_transform(umap_projection[:, 0].reshape(-1, 1))
-pca_scaled = scaler.fit_transform(pca_projection[:, 0].reshape(-1, 1))
-tsne_scaled = scaler.fit_transform(tsne_projection[:, 0].reshape(-1, 1))
+n_sources = 1000
+query = f"""SELECT TOP {n_sources} sh.*, g.ra, g.dec, g.parallax, g.pmra, g.pmdec
+            FROM gaiaedr3.gaia_source AS g
+            JOIN gaiaedr3_contrib.starhorse AS sh
+            USING (source_id)"""
 
-# Create subplots
-fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+result = service.search(query)
+print('Gaia query done!\n')
 
-# UMAP plot
-axes[0].scatter(umap_projection[:, 0], umap_projection[:, 1], c=umap_scaled[:, 0], cmap='viridis')
-axes[0].set_title('UMAP Projection')
-axes[0].set_xlabel('UMAP Dimension 1')
-axes[0].set_ylabel('UMAP Dimension 2')
-cbar0 = fig.colorbar(axes[0].collections[0], ax=axes[0])
-cbar0.set_label('Scaled UMAP Dimension 1')
+# Save to DB and select columns
+df_sh = result.to_table().to_pandas()
+sel_cols = ['xgal', 'ygal','zgal','bprp0','mg0','parallax','pmra', 'pmdec']
+df = df_sh[sel_cols].dropna()
 
-# PCA plot
-axes[1].scatter(pca_projection[:, 0], pca_projection[:, 1], c=pca_scaled[:, 0], cmap='viridis')
-axes[1].set_title('PCA Projection')
-axes[1].set_xlabel('PCA Dimension 1')
-axes[1].set_ylabel('PCA Dimension 2')
-cbar1 = fig.colorbar(axes[1].collections[0], ax=axes[1])
-cbar1.set_label('Scaled PCA Dimension 1')
+# Loop with different random seeds
 
-# t-SNE plot
-axes[2].scatter(tsne_projection[:, 0], tsne_projection[:, 1], c=tsne_scaled[:, 0], cmap='viridis')
-axes[2].set_title('t-SNE Projection')
-axes[2].set_xlabel('t-SNE Dimension 1')
-axes[2].set_ylabel('t-SNE Dimension 2')
-cbar2 = fig.colorbar(axes[2].collections[0], ax=axes[2])
-cbar2.set_label('Scaled t-SNE Dimension 1')
+n_test = 10
 
-# Adjust layout and save the figure
-plt.tight_layout()
-plt.savefig('projections_comparison.png')
+for i,n in enumerate(np.random.randint(10,1000,n_test)):
 
-# Show the plot
-plt.show()
-
-# Display the DataFrame with added columns
-print(df.head())
+    print('\nRandom seed =', n)    
+    proj = make_projections(df, n_components=2, n_random=n)
+                
+    # Create subplots
+    fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+    
+    # Scale the values for better colors
+    scaler = MinMaxScaler()
+    scaled = {}
+	
+    for j,p in enumerate(['UMAP', 'PCA', 't-SNE']):
+        
+        ax = axes[j]
+        
+        scaled[p] = scaler.fit_transform(proj[p][:, 0].reshape(-1, 1))
+        ax.scatter(proj[p][:, 0], proj[p][:, 1], c=scaled[p][:, 0], cmap='viridis',label='Random seed ='+str(n))
+        
+        ax.set_title(f'{p} Projection')
+        ax.set_xlabel(f'{p} Dimension 1')
+        ax.set_ylabel(f'{p} Dimension 2')
+        cbar0 = fig.colorbar(axes[0].collections[0], ax=ax)
+        cbar0.set_label(f'Scaled {p} Dimension 1')
+        ax.legend(loc='upper left', handlelength=0, handletextpad=0)
+    
+    # Adjust layout and save the figure
+    plt.tight_layout()
+    plot_out = f'./results/projections_comparison_{str(i+1)}.png'
+    plt.savefig(plot_out)
+    
+    # Uploading to S3
+    client.fput_object('elena-test', f'projections_comparison_{str(i+1)}.png', plot_out)
+    print(f'Succesfully uploaded projections_comparison_{str(i+1)}.png to S3!')
+    os.remove(plot_out)
