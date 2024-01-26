@@ -93,6 +93,6 @@ for i,n in enumerate(np.random.randint(10,1000,n_test)):
     plt.savefig(plot_out)
     
     # Uploading to S3
-    client.fput_object('elena-test', f'projections_comparison_{str(i+1)}.png', plot_out)
+    client.fput_object('scratch, f'projections_comparison_{str(i+1)}.png', plot_out)
     print(f'Succesfully uploaded projections_comparison_{str(i+1)}.png to S3!')
     os.remove(plot_out)
