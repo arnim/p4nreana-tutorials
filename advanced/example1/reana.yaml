@@ -12,7 +12,7 @@ workflow:
       - environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.9845'
         commands:
           - mkdir -p results
-          - papermill ${notebook_in} ${notebook_out} -p output_file ${output_plot}
+          - papermill ${notebook_in} ${notebook_out} -p output_file ${output_plot} -k python3
 outputs:
   files:
     - results/galactic_plot.png
