@@ -1,4 +1,5 @@
 import os
+import argparse
 import pyvo as vo
 import pandas as pd
 import numpy as np
@@ -59,7 +60,10 @@ df = df_sh[sel_cols].dropna()
 
 # Loop with different random seeds
 
-n_test = 10
+# Get n_test parameter
+parser = argparse.ArgumentParser()
+parser.add_argument('-n', '--number_of_tests', type=int)
+n_test = parser.parse_args().number_of_tests
 
 for i,n in enumerate(np.random.randint(10,1000,n_test)):
 
