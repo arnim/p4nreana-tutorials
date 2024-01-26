@@ -61,7 +61,8 @@ The data round trip is following:
   * we use public datasets from **gaia.aip.de** 
 
 # Keys and secrets management
-Before running the example, we need to use [**reana-client secrets**](https://docs.reana.io/reference/reana-client-cli-api/#secret-management-commands) management to store the keys to access the private folder where we want to put our results. Run in the terminal these two commands:
+Before running the example, we need to use [**reana-client secrets**](https://docs.reana.io/reference/reana-client-cli-api/#secret-management-commands) management to store the keys to access the private folder where we want to put our results.  
+Run in the terminal these two commands:
 
 `reana-client secrets-add --env access_key=XXX`  
 `reana-client secrets-add --env secret_key=XXX`
