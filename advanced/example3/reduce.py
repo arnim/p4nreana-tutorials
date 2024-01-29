@@ -60,9 +60,11 @@ df = df_sh[sel_cols].dropna()
 
 # Loop with different random seeds
 
-# Get n_test parameter
+# Get n_test and user_folder parameters
 parser = argparse.ArgumentParser()
+parser.add_argument('-d', '--user_folder', type=str)
 parser.add_argument('-n', '--number_of_tests', type=int)
+out_dir = parser.parse_args().user_folder
 n_test = parser.parse_args().number_of_tests
 
 for i,n in enumerate(np.random.randint(10,1000,n_test)):
@@ -97,6 +99,6 @@ for i,n in enumerate(np.random.randint(10,1000,n_test)):
     plt.savefig(plot_out)
     
     # Uploading to S3
-    client.fput_object('scratch', f'projections_comparison_{str(i+1)}.png', plot_out)
+    client.fput_object('scratch', f'{out_dir}/projections_comparison_{str(i+1)}.png', plot_out)
     print(f'Succesfully uploaded projections_comparison_{str(i+1)}.png to S3!')
     os.remove(plot_out)

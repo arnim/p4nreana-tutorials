@@ -3,6 +3,7 @@ inputs:
     - reduce.py
     - combine_plots.py
   parameters:
+    user_folder: new_user
     n_test: 5
 workflow:
   type: serial
@@ -12,11 +13,11 @@ workflow:
         environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro-ml.10134'
         commands:
           - mkdir -p results
-          - python reduce.py -n ${n_test}
+          - python reduce.py -d ${user_folder} -n ${n_test}
       - name: combine-plots
         environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro-ml.10134'
         commands:
-          - python combine_plots.py -n ${n_test}
+          - python combine_plots.py -d ${user_folder} -n ${n_test}
 outputs:
   files:
     - results/merged_plots.pdf
