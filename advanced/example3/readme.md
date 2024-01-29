@@ -75,7 +75,9 @@ In this way, we can use the added keys as environment variables in our code, by 
 
 The **reana.yaml** file for this example is quite simple and made of 2 steps:
 - `make-projections` runs the 3 projections for a number of times specified by the `n_test` parameter and uploads the results to S3;
-- `combine-plots` retrieves all the plots and combines them in a single pdf file.
+- `combine-plots` retrieves all the plots from the `user_folder` and combines them in a single pdf file.  
+
+Please change `new_user` to a customized name so you'll have your own folder inside scratch.
 
 ```
 inputs:
@@ -83,6 +85,7 @@ inputs:
     - reduce.py
     - combine_plots.py
   parameters:
+    user_folder: new_user
     n_test: 5
 workflow:
   type: serial
@@ -92,11 +95,11 @@ workflow:
         environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro-ml.10134'
         commands:
           - mkdir -p results
-          - python reduce.py -n ${n_test}
+          - python reduce.py -d ${user_folder} -n ${n_test}
       - name: combine-plots
         environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro-ml.10134'
         commands:
-          - python combine_plots.py -n ${n_test}
+          - python combine_plots.py -d ${user_folder} -n ${n_test}
 outputs:
   files:
     - results/merged_plots.pdf
