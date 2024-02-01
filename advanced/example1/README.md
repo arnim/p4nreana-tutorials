@@ -52,7 +52,7 @@ Alternatively, you can open the notebook from command line and specify a custom 
 
 `reana-client open -w adv-example1.1 -i gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.9845 jupyter`
 
-Notice you need to use the workflow name you chose when running the analysis (here "adv-example1") with the correct tag (the progressive number automatically added by REANA that you can see in the platform next to the name).
+Notice you need to use the workflow name you chose when running the analysis (here "adv-example1") with the correct tag (the progressive number automatically added by REANA that you can see on the web interface next to the name).
 
 You can open notebooks in both ways for all your workflows.
 
