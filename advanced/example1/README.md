@@ -54,5 +54,5 @@ Alternatively, you can open the notebook from command line and specify a custom 
 
 Notice you need to use the workflow name you chose when running the analysis (here "adv-example1") with the correct tag (the progressive number automatically added by REANA that you can see in the platform next to the name).
 
-You can open notebooks in this way for all your workflows.
+You can open notebooks in both ways for all your workflows.
 
