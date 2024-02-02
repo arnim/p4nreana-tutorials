@@ -105,9 +105,7 @@ def create_plot(arch_id, arch_nam, num_plates):
     if(verb>0): print(imgname)
 
     if (arch_id == 2):
-        # archive 2 is special: since there is a grid on the plate, no processing by pyplate; but cordinates of the plates 
-        # are processed, and the fov is constant (2.1x2.1 deg) 
-        # a slightly different query and data handling is used
+
         # SQL query to database, table solution, because the field of view (= size of the area mapped on a plate) is required
         query1 = "SELECT plate_id,archive_id, ra_icrs, dec_icrs FROM applause_dr4.exposure WHERE archive_id = "
         query2 = "AND NOT(ra_icrs IS NULL OR dec_icrs IS NULL) ORDER BY plate_id"
