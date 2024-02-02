@@ -1,7 +1,6 @@
 version: 0.9.0
 inputs:
   files:
-  - archive_id.csv
   - plotplates.py
 workflow:
   type: serial
@@ -13,4 +12,5 @@ workflow:
           - python plotplates.py
 outputs:
   files:
+    - archive_id.csv
     - imgdr4/dr4_archive_401.png
