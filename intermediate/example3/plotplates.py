@@ -154,7 +154,8 @@ lang='PostgreSQL'
 qry = "Select archive_id, archive_name, num_plates from applause_dr4.archive order by archive_id"
 tap_result = tap_service.run_sync(qry, language=lang)
 dfa = tap_result.to_table().to_pandas()
-dfa;
+dfa.to_csv('archive_id.csv', index=False)
+
 # Loop through the archives
 for index, row in dfa.iterrows():
     if(row['archive_id']==401):
