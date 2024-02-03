@@ -16,9 +16,9 @@ inputs:
     - microphysics_params.py
     - planet_structure.py
     - solve_for_masses.py
-    - Evap_notebook.ipynb
+    - Intro_notebook.ipynb
   parameters:
-    notebook_in: Evap_notebook.ipynb
+    notebook_in: Intro_notebook.ipynb
     notebook_out: results/output_notebook.ipynb
     output_plot: results/ProbaDensity_MinimumCoreMass.png
      
