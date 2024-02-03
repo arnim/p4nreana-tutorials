@@ -158,4 +158,4 @@ dfa.to_csv('archive_id.csv', index=False)
 for index, row in dfa.iterrows():
     if(row['archive_id']==401):
         create_plot(row['archive_id'], row['archive_name'], row['num_plates'])
-        #plt.savefig(imgname)
+      
