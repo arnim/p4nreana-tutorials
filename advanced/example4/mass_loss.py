@@ -1,5 +1,5 @@
 ########
-## File containing functions relevant for mass-loss calculations
+## File containing functions relevant for mass-loss calculation
 ########
 
 import numpy as np
