@@ -1,6 +1,6 @@
 # fundamental constants
 
-# constants all in cgs units
+# constants all in cgs unit
 
 kb = 1.38065e-16 # boltzmann's constant
 mh = 1.673558e-24 # mass of hydrogen atom in grams
