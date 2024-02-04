@@ -31,6 +31,7 @@ outputs:
   files:
     - sine_plot.png
 
+
 ```
 
 ## Running the Example  
