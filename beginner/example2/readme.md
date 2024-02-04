@@ -26,11 +26,10 @@ workflow:
     steps:
       - environment: 'jupyter/scipy-notebook'
         commands:
-          - mkdir -p output
           - python sine_plot.py
 outputs:
   files:
-    - output/sine_plot.png
+    - sine_plot.png
 
 ```
 
