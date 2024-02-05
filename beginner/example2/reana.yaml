@@ -6,7 +6,7 @@ workflow:
   type: serial
   specification:
     steps:
-      - environment: 'jupyter/scipy-notebook'
+      - environment: 'docker.io/library/python:3.10-bookworm'
         commands:
           - python sine_plot.py
 outputs:
