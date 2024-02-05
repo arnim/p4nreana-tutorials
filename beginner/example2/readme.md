@@ -10,7 +10,7 @@ To create a simple `sine function` plotting example for a REANA reusable researc
 ### 2.**Environment Requirements**
 It's important to choose an environment that includes all the necessary dependencies for the specific task at hand. If custom environments are needed, you can create your own Docker images and use them in the environment specification.  
 
- Here we are `jupyter/scipy-notebook` which has all the libraries we want to run this specific workflow. The environment section in our REANA workflow YAML file indicates the Docker image to be used for running your Python script.
+ Here we are `docker.io/library/python:3.10-bookworm` which has all the libraries we want to run this specific workflow. The environment section in our REANA workflow YAML file indicates the Docker image to be used for running your Python script.
 
 ### 3.**Workflow Specification (YAML)**:
 This file describes the structure and steps of your workflow. It includes information about input data, steps to be executed, and any necessary parameters. The default name is often **reana.yaml**.
@@ -24,7 +24,7 @@ workflow:
   type: serial
   specification:
     steps:
-      - environment: 'jupyter/scipy-notebook'
+      - environment: 'docker.io/library/python:3.10-bookworm'
         commands:
           - python sine_plot.py
 outputs:
