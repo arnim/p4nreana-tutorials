@@ -16,7 +16,7 @@ out_dir = parser.parse_args().user_folder
 n_test = parser.parse_args().number_of_tests
 
 # Get the images from S3
-bucket = 'scratch'
+bucket = 'reana-tutorial'
 for i in range(n_test):
     file_remote = f'{out_dir}/projections_comparison_{str(i+1)}.png'
     file_local = f'./results/projections_comparison_{str(i+1)}.png'
