@@ -27,9 +27,7 @@ workflow:
       - environment: 'docker.io/library/python:3.10-bookworm'
         commands:
           - python sine_plot.py
-outputs:
-  files:
-    - sine_plot.png
+
 
 
 ```
