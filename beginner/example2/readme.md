@@ -75,7 +75,7 @@ $ reana-client logs
 ```
 Running this workflow should give you a sin function plot:
 
-![](Output/sine_plot.png)
+![](sine_plot.png)
 
 
 
