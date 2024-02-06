@@ -73,11 +73,6 @@ $ reana-client status
 $ reana-client logs
 
 ```
-After running the analysis through REANA, we can download the results with
-```
-$ reana-client download sine_plot.png
-
-```
 Running this workflow should give you a sin function plot:
 
 ![](Output/sine_plot.png)
