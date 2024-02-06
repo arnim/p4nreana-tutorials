@@ -114,7 +114,6 @@ Get all the examples in this GitLab repository:
 1. [Using Notebooks](https://gitlab-p4n.aip.de/p4nreana/tutorials/-/tree/main/advanced/example1) -- This example shows how to use a Jupyter Notebook insted of a python script for the Remote Data analysis.
 2. [Create custom Images](https://gitlab-p4n.aip.de/p4nreana/tutorials/-/tree/main/advanced/example2) -- This example shows how to build a custom imgage on gitlab, so that you can choose all the packages and libraries needed for the analsis to run.
 3. [Dimensionality Reduction](https://gitlab-p4n.aip.de/p4nreana/tutorials/-/tree/main/advanced/example3) -- This example shows three different projections for dimensionality reduction (UMAP, PCA, and t-SNE) and describes how to manage data flow between different pipelines using S3 private storage.
-4. [Photoevaporation Model](https://gitlab-p4n.aip.de/p4nreana/tutorials/-/tree/main/advanced/example4) -- This example uses a photo-evaporation driven evolution model to predict the minimum masses of mini-Neptunes in multi-planet systems to be consistent with the photo-evaporation model.
 
 Custom environments created for these exercises here: [reana-env](https://gitlab-p4n.aip.de/p4nreana/reana-env/)
 
