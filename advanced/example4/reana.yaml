@@ -11,8 +11,7 @@ inputs:
   parameters:
     notebook_in: Intro_notebook.ipynb
     notebook_out: results/output_notebook.ipynb
-    output_plot: results/ProbaDensity_MinimumCoreMass.png
-    Mout_error: np.zeros(100) 
+    output_plot: results/ProbaDensity_MinimumCoreMass.png 
 workflow:
   type: serial
   specification:
@@ -20,7 +19,7 @@ workflow:
       - environment: 'gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.9845'
         commands:
           - mkdir -p results
-          - papermill ${notebook_in} ${notebook_out} -p output_plot ${output_plot} -p Mout_error "${Mout_error}" -k python3
+          - papermill ${notebook_in} ${notebook_out} -p output_plot ${output_plot} -k python3
 outputs:
   files:
     - results/ProbaDensity_MinimumCoreMass.png
